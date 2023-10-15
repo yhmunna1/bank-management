@@ -168,50 +168,58 @@ while True:
 
     elif welcome == 2:
         print('Welcome to Admin panel')
-        while True:
-            print('1. Create an account')
-            print('2. Delete any user account')
-            print('3. All users accounts list')
-            print('4. Total available balance of the bank')
-            print('5. Total loan amount')
-            print('6. Turn OFF the loan feature')
-            print('7. Turn ON the loan feature')
-            print('99. Back')
+        print('Enter Admin Password')
+        password = int(input())
+        if password == 123:
+            while True:
+                print('1. Create an account')
+                print('2. Delete any user account')
+                print('3. All users accounts list')
+                print('4. Total available balance of the bank')
+                print('5. Total loan amount')
+                print('6. Turn OFF the loan feature')
+                print('7. Turn ON the loan feature')
+                print('99. Back')
 
-            action = int(input())
-            if action == 1:
-                name = input('Your name: ')
-                email = input('Your email: ')
-                address = input('Your address: ')
-                account_type = input('Enter your account type (Savings/Current): ')
-                user = admin.create_account(name, email, address, account_type)
-                admin.view_user_accounts()
+                action = int(input())
+                if action == 1:
+                    name = input('Your name: ')
+                    email = input('Your email: ')
+                    address = input('Your address: ')
+                    account_type = input('Enter your account type (Savings/Current): ')
+                    user = admin.create_account(name, email, address, account_type)
+                    admin.view_user_accounts()
 
-            elif action == 2:
-                account_number = int(input('Enter the Account Number: '))
-                admin.delete_user(account_number)
+                elif action == 2:
+                    account_number = int(input('Enter the Account Number: '))
+                    admin.delete_user(account_number)
 
-            elif action == 3:
-                admin.view_user_accounts()
+                elif action == 3:
+                    admin.view_user_accounts()
 
-            elif action == 4:
-                print(admin.check_total_balance())
+                elif action == 4:
+                    print(admin.check_total_balance())
 
-            elif action == 5:
-                print(admin.check_total_loan())
+                elif action == 5:
+                    print(admin.check_total_loan())
 
-            elif action == 6:
-                admin.toggle_loan_feature(False)
-            
-            elif action == 7:
-                admin.toggle_loan_feature(True)
+                elif action == 6:
+                    admin.toggle_loan_feature(False)
+                
+                elif action == 7:
+                    admin.toggle_loan_feature(True)
 
 
-            elif action == 99:
-                break
+                elif action == 99:
+                    break
 
-            else:
-                print('Wrong input!')
+                else:
+                    print('Wrong input!')
+
+
+        else:
+            print('Wrong Password')
+        
 
 
     elif welcome == 3:
